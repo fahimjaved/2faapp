@@ -7,6 +7,7 @@
 
 //var app = express();
 var express = require('express');
+var port = process.env.PORT || 8080; 
 var nodemailer = require('nodemailer');
 var path = require('path');
 var https = require("https");
@@ -237,6 +238,5 @@ exports.signinWithBankId = function(req, res, next) {
 
 
 
-var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "localhost";
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
-app.listen(port,ipaddr);
+app.listen(port);
+console.log("App listening on port " + port);
